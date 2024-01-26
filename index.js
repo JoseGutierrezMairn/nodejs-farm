@@ -42,10 +42,8 @@ const templateOverview = fs.readFileSync(`${__dirname}/templates/template-overvi
 const templateCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf-8');
 const templateProduct = fs.readFileSync(`${__dirname}/templates/template-product.html`, 'utf-8');
 
-
-
 const server = http.createServer((req, res) => {
-
+    
     const {query, pathname} = url.parse(req.url, true);
     if(pathname === '/' || pathname === '/overview'){
         const cardsHtml = dataObj.map( el => replaceTemplate(templateCard, el) );
